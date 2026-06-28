@@ -1,0 +1,351 @@
+:root {
+    --ink: #0f1117;
+    --ink-2: #4a4d5a;
+    --ink-3: #8b8e9c;
+    --surface: #ffffff;
+    --surface-1: #f7f8fa;
+    --border: #e3e5eb;
+    --border-strong: #c8cbd6;
+    --accent: #2d5be3;
+    --accent-bg: #edf1fd;
+    --accent-text: #1a3db5;
+    --success: #0f8c4a;
+    --success-bg: #e6f5ed;
+    --success-text: #0a5e31;
+    --warning-bg: #fef3e2;
+    --warning-text: #7a4900;
+    --danger: #cc2929;
+    --danger-bg: #fdeaea;
+    --danger-text: #8f1a1a;
+    --radius: 10px;
+    --radius-sm: 6px;
+}
+
+body,
+.wrapper {
+    background: var(--surface-1) !important;
+}
+
+.content-wrapper {
+    background: var(--surface-1) !important;
+    padding: 0 !important;
+}
+
+.page-shell {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+/* ── Page header ── */
+.page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.page-header h1 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.page-header p {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    margin: 0;
+}
+
+/* ── Section cards ── */
+.section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+}
+
+.section-card:last-child {
+    margin-bottom: 0;
+}
+
+.section-card-header {
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-1);
+}
+
+.section-card-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-card-body {
+    padding: 1.25rem;
+}
+
+.section-card-footer {
+    padding: 0.875rem 1.25rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface-1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* ── Danger zone card ── */
+.section-card.danger-zone {
+    border-color: #f0a8a8;
+}
+
+.section-card.danger-zone .section-card-header {
+    background: var(--danger-bg);
+    border-bottom-color: #f0a8a8;
+}
+
+.section-card.danger-zone .section-card-title {
+    color: var(--danger-text);
+}
+
+/* ── Form fields ── */
+.form-field {
+    margin-bottom: 1rem;
+}
+
+.form-field:last-child {
+    margin-bottom: 0;
+}
+
+.form-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    margin-bottom: 0.35rem;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    transition:
+        border-color 0.15s,
+        box-shadow 0.15s;
+    outline: none;
+    appearance: none;
+}
+
+.form-field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(45, 91, 227, 0.12);
+}
+
+.form-field input.is-invalid {
+    border-color: var(--danger);
+    box-shadow: none;
+}
+
+.form-field input.is-invalid:focus {
+    box-shadow: 0 0 0 3px rgba(204, 41, 41, 0.12);
+}
+
+.form-field input[readonly] {
+    background: var(--surface-1);
+    color: var(--ink-3);
+    cursor: default;
+}
+
+.invalid-msg {
+    font-size: 0.775rem;
+    color: var(--danger-text);
+    margin-top: 0.3rem;
+}
+
+/* ── Buttons ── */
+.btn-save {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        transform 0.1s;
+}
+
+.btn-save:hover {
+    background: #2450c8;
+}
+
+.btn-save:active {
+    transform: scale(0.98);
+}
+
+.btn-password {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--warning-text);
+    background: var(--warning-bg);
+    border: 1px solid #e8c070;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        transform 0.1s;
+}
+
+.btn-password:hover {
+    background: #fde8c0;
+}
+
+.btn-password:active {
+    transform: scale(0.98);
+}
+
+.btn-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--danger-text);
+    background: var(--danger-bg);
+    border: 1px solid #f0a8a8;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        transform 0.1s;
+}
+
+.btn-danger:hover {
+    background: #f9d0d0;
+}
+
+.btn-danger:active {
+    transform: scale(0.98);
+}
+
+/* Saved indicator */
+.saved-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--success-text);
+    background: var(--success-bg);
+    border: 1px solid #a8dcc0;
+    border-radius: var(--radius-sm);
+    padding: 0.3rem 0.65rem;
+}
+
+/* ── Danger zone description ── */
+.danger-desc {
+    font-size: 0.8125rem;
+    color: var(--ink-3);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* ── Modal ── */
+.modal-backdrop.show {
+    opacity: 0.35;
+}
+
+.modal-content {
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: var(--surface-1) !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 0.875rem 1.25rem !important;
+}
+
+.modal-header .modal-title {
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    color: var(--ink) !important;
+}
+
+.modal-body {
+    padding: 1.25rem !important;
+}
+
+.modal-body p {
+    font-size: 0.8125rem;
+    color: var(--ink-3);
+    margin-bottom: 0.875rem;
+}
+
+.modal-footer {
+    background: var(--surface-1) !important;
+    border-top: 1px solid var(--border) !important;
+    padding: 0.75rem 1.25rem !important;
+    gap: 0.5rem;
+}
+
+.btn-modal-cancel {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.45rem 0.875rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-modal-cancel:hover {
+    background: var(--surface-1);
+}
+
+.btn-modal-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.875rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: var(--danger);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-modal-danger:hover {
+    background: #a82020;
+}

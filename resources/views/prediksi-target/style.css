@@ -1,0 +1,321 @@
+:root {
+    --ink: #0f1117;
+    --ink-2: #4a4d5a;
+    --ink-3: #8b8e9c;
+    --surface: #ffffff;
+    --surface-1: #f7f8fa;
+    --border: #e3e5eb;
+    --border-strong: #c8cbd6;
+    --accent: #2d5be3;
+    --accent-bg: #edf1fd;
+    --accent-text: #1a3db5;
+    --success: #0f8c4a;
+    --success-bg: #e6f5ed;
+    --success-text: #0a5e31;
+    --danger: #cc2929;
+    --danger-bg: #fdeaea;
+    --danger-text: #8f1a1a;
+    --radius: 10px;
+    --radius-sm: 6px;
+}
+
+body,
+.wrapper {
+    background: var(--surface-1) !important;
+}
+
+.content-wrapper {
+    background: var(--surface-1) !important;
+    padding: 0 !important;
+}
+
+.page-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+/* ── Page header ── */
+.page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.page-header h1 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.page-header p {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    margin: 0;
+}
+
+/* ── Two-column layout ── */
+.two-col {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+@media (max-width: 720px) {
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Section cards ── */
+.section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+}
+
+.section-card:last-child {
+    margin-bottom: 0;
+}
+
+.section-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-1);
+}
+
+.section-card-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-card-body {
+    padding: 1.25rem;
+}
+
+/* ── Form elements ── */
+.form-field {
+    margin-bottom: 1rem;
+}
+
+.form-field:last-child {
+    margin-bottom: 0;
+}
+
+.form-field label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    margin-bottom: 0.35rem;
+}
+
+.form-field input {
+    width: 100%;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    transition:
+        border-color 0.15s,
+        box-shadow 0.15s;
+    outline: none;
+    appearance: none;
+}
+
+.form-field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(45, 91, 227, 0.12);
+}
+
+.form-field input::placeholder {
+    color: var(--ink-3);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    margin-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    transition:
+        background 0.15s,
+        transform 0.1s;
+}
+
+.btn-submit:hover {
+    background: #2450c8;
+}
+
+.btn-submit:active {
+    transform: scale(0.99);
+}
+
+/* ── Hasil prediksi ── */
+.hasil-block {
+    margin-bottom: 1.25rem;
+}
+
+.eq-block {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 0.875rem 1rem;
+    margin-bottom: 0.875rem;
+}
+
+.eq-block .eq-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.4rem;
+}
+
+.eq-block .eq-formula {
+    font-family: "SFMono-Regular", "Menlo", "Courier New", monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--accent-text);
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.hasil-number-block {
+    background: var(--success-bg);
+    border: 1px solid #a8dcc0;
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+
+.hasil-number-block .hasil-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--success-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.hasil-number-block .hasil-value {
+    font-size: 1.625rem;
+    font-weight: 700;
+    color: var(--success-text);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+    line-height: 1;
+}
+
+/* ── Table ── */
+.data-table-wrap {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    font-size: 0.8125rem;
+    border-collapse: collapse;
+}
+
+.data-table thead th {
+    background: var(--surface-1);
+    color: var(--ink-3);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.6rem 0.875rem;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+}
+
+.data-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background: var(--surface-1);
+}
+
+.data-table td {
+    padding: 0.6rem 0.875rem;
+    color: var(--ink);
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.data-table td:first-child {
+    color: var(--ink-3);
+    font-size: 0.75rem;
+}
+
+/* ── Delete button ── */
+.btn-hapus {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--danger-text);
+    background: var(--danger-bg);
+    border: 1px solid #f0a8a8;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.btn-hapus:hover {
+    background: #f9d0d0;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.empty-state i {
+    font-size: 1.75rem;
+    color: var(--border-strong);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.empty-state p {
+    font-size: 0.8125rem;
+    color: var(--ink-3);
+    margin: 0;
+}

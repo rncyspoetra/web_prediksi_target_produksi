@@ -1,0 +1,506 @@
+:root {
+    --ink: #0f1117;
+    --ink-2: #4a4d5a;
+    --ink-3: #8b8e9c;
+    --surface: #ffffff;
+    --surface-1: #f7f8fa;
+    --surface-2: #eef0f4;
+    --border: #e3e5eb;
+    --border-strong: #c8cbd6;
+    --accent: #2d5be3;
+    --accent-bg: #edf1fd;
+    --accent-text: #1a3db5;
+    --success: #0f8c4a;
+    --success-bg: #e6f5ed;
+    --success-text: #0a5e31;
+    --warning: #b86e00;
+    --warning-bg: #fef3e2;
+    --warning-text: #7a4900;
+    --danger: #cc2929;
+    --danger-bg: #fdeaea;
+    --danger-text: #8f1a1a;
+    --info: #0f6bac;
+    --info-bg: #e6f2fb;
+    --info-text: #084d7d;
+    --radius: 10px;
+    --radius-sm: 6px;
+}
+
+body,
+.wrapper {
+    background: var(--surface-1) !important;
+}
+
+.content-wrapper {
+    background: var(--surface-1) !important;
+    padding: 0 !important;
+}
+
+.page-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+/* ── Page header ── */
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.page-header-left h1 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.page-header-left p {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    margin: 0;
+}
+
+/* ── Buttons ── */
+.btn-generate {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        transform 0.1s;
+    text-decoration: none;
+}
+
+.btn-generate:active {
+    transform: scale(0.98);
+}
+
+.btn-primary-custom {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.btn-primary-custom:hover {
+    background: #2450c8;
+    color: #fff;
+}
+
+.btn-warning-custom {
+    background: var(--warning-bg);
+    color: var(--warning-text);
+    border: 1px solid #e8c070;
+}
+
+.btn-warning-custom:hover {
+    background: #fde8c0;
+    color: var(--warning-text);
+}
+
+.btn-export {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: var(--success-bg);
+    color: var(--success-text);
+    border: 1px solid #a8dcc0;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.btn-export:hover {
+    background: #c9ecda;
+    color: var(--success-text);
+    text-decoration: none;
+}
+
+/* ── Section cards ── */
+.section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+}
+
+.section-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-1);
+}
+
+.section-card-title {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--ink-2);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-card-title i {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+}
+
+.section-card-body {
+    padding: 1.25rem;
+}
+
+/* ── Coefficient tiles ── */
+.coeff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.coeff-tile {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.coeff-tile::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+}
+
+.coeff-tile.c-blue::before {
+    background: var(--accent);
+}
+
+.coeff-tile.c-green::before {
+    background: var(--success);
+}
+
+.coeff-tile.c-amber::before {
+    background: #d68b00;
+}
+
+.coeff-tile.c-red::before {
+    background: var(--danger);
+}
+
+.coeff-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.35rem;
+}
+
+.coeff-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+}
+
+.coeff-tile.c-blue .coeff-value {
+    color: var(--accent-text);
+}
+
+.coeff-tile.c-green .coeff-value {
+    color: var(--success-text);
+}
+
+.coeff-tile.c-amber .coeff-value {
+    color: var(--warning-text);
+}
+
+.coeff-tile.c-red .coeff-value {
+    color: var(--danger-text);
+}
+
+/* ── Equation display ── */
+.equation-block {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 1rem 1.25rem;
+}
+
+.equation-block .eq-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.5rem;
+}
+
+.equation-block .eq-formula {
+    font-family: "SFMono-Regular", "Menlo", "Courier New", monospace;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--accent-text);
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.equation-block .eq-vars {
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+}
+
+.eq-var-item::before {
+    content: "·";
+    margin-right: 0.35rem;
+    color: var(--border-strong);
+}
+
+/* ── MAPE ── */
+.mape-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+@media (max-width: 576px) {
+    .mape-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.mape-stat {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+    min-width: 120px;
+}
+
+.mape-stat .mape-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.mape-stat .mape-sub {
+    font-size: 0.75rem;
+    color: var(--ink-3);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.mape-interpretation {
+    border-radius: var(--radius-sm);
+    padding: 0.875rem 1rem;
+    border: 1px solid;
+}
+
+.mape-interpretation.success {
+    background: var(--success-bg);
+    border-color: #a8dcc0;
+    color: var(--success-text);
+}
+
+.mape-interpretation.info {
+    background: var(--info-bg);
+    border-color: #8eccf0;
+    color: var(--info-text);
+}
+
+.mape-interpretation.warning {
+    background: var(--warning-bg);
+    border-color: #e8c070;
+    color: var(--warning-text);
+}
+
+.mape-interpretation.danger {
+    background: var(--danger-bg);
+    border-color: #f0a8a8;
+    color: var(--danger-text);
+}
+
+.mape-interpretation .interp-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.25rem;
+}
+
+.mape-interpretation p {
+    font-size: 0.8125rem;
+    margin: 0;
+    opacity: 0.85;
+}
+
+/* ── Empty state ── */
+.empty-state {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+}
+
+.empty-state i {
+    font-size: 2.5rem;
+    color: var(--border-strong);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.empty-state h5 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ink-2);
+    margin-bottom: 0.35rem;
+}
+
+.empty-state p {
+    font-size: 0.8125rem;
+    color: var(--ink-3);
+    margin: 0;
+    max-width: 340px;
+    margin-inline: auto;
+}
+
+/* ── Chart area ── */
+.chart-wrap {
+    position: relative;
+    width: 100%;
+    height: 280px;
+}
+
+/* ── Table ── */
+.data-table-wrap {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    font-size: 0.8125rem;
+    border-collapse: collapse;
+}
+
+.data-table thead th {
+    background: var(--surface-1);
+    color: var(--ink-3);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.65rem 0.875rem;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+}
+
+.data-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background: var(--surface-1);
+}
+
+.data-table td {
+    padding: 0.625rem 0.875rem;
+    color: var(--ink);
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.data-table td:first-child {
+    color: var(--ink-3);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* ── Error badges ── */
+.err-badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.err-badge.success {
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.err-badge.info {
+    background: var(--info-bg);
+    color: var(--info-text);
+}
+
+.err-badge.warning {
+    background: var(--warning-bg);
+    color: var(--warning-text);
+}
+
+.err-badge.danger {
+    background: var(--danger-bg);
+    color: var(--danger-text);
+}
+
+/* ── Pagination area ── */
+.table-footer {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface-1);
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* AdminLTE pagination override */
+.table-footer .pagination .page-item .page-link {
+    border-color: var(--border);
+    color: var(--accent);
+    font-size: 0.8rem;
+}
+
+.table-footer .pagination .page-item.active .page-link {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
