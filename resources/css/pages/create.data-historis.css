@@ -1,0 +1,211 @@
+:root {
+    --ink: #0f1117;
+    --ink-2: #4a4d5a;
+    --ink-3: #8b8e9c;
+    --surface: #ffffff;
+    --surface-1: #f7f8fa;
+    --border: #e3e5eb;
+    --border-strong: #c8cbd6;
+    --accent: #2d5be3;
+    --danger: #cc2929;
+    --danger-bg: #fdeaea;
+    --danger-text: #8f1a1a;
+    --radius: 10px;
+    --radius-sm: 6px;
+}
+
+body,
+.wrapper {
+    background: var(--surface-1) !important;
+}
+
+.content-wrapper {
+    background: var(--surface-1) !important;
+    padding: 0 !important;
+}
+
+.page-shell {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+/* ── Page header ── */
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.page-header-left h1 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.page-header-left p {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    margin: 0;
+}
+
+/* ── Section card ── */
+.section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.section-card-header {
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-1);
+}
+
+.section-card-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.section-card-body {
+    padding: 1.5rem 1.25rem;
+}
+
+.section-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.25rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface-1);
+}
+
+/* ── Form grid ── */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.25rem;
+}
+
+@media (max-width: 560px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Form fields ── */
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    margin-bottom: 0.35rem;
+}
+
+.form-field label .required {
+    color: var(--danger);
+    margin-left: 2px;
+    font-size: 0.75rem;
+}
+
+.form-field input {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    transition:
+        border-color 0.15s,
+        box-shadow 0.15s;
+    outline: none;
+    appearance: none;
+    width: 100%;
+}
+
+.form-field input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(45, 91, 227, 0.12);
+}
+
+.form-field input.is-invalid {
+    border-color: var(--danger);
+}
+
+.form-field input.is-invalid:focus {
+    box-shadow: 0 0 0 3px rgba(204, 41, 41, 0.12);
+}
+
+.form-field input::placeholder {
+    color: var(--ink-3);
+}
+
+.invalid-msg {
+    font-size: 0.775rem;
+    color: var(--danger-text);
+    margin-top: 0.3rem;
+}
+
+/* ── Buttons ── */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-2);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.btn-back:hover {
+    background: var(--surface-1);
+    color: var(--ink-2);
+    text-decoration: none;
+}
+
+.btn-save {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+        background 0.15s,
+        transform 0.1s;
+}
+
+.btn-save:hover {
+    background: #2450c8;
+}
+
+.btn-save:active {
+    transform: scale(0.98);
+}

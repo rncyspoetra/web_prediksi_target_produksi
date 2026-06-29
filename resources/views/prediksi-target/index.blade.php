@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @section('title', 'Prediksi Target Produksi')
-@vite('resources/views/prediksi-target/style.css')
+@vite('resources/css/pages/prediksi-target.css')
 
 @section('content')
     <div class="page-shell">

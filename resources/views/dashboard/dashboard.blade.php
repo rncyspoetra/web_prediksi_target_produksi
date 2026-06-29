@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @section('title', 'Dashboard')
-@vite('resources/views/dashboard/style.css')
+@vite('resources/css/pages/dashboard.css')
 
 @section('content')
     <div class="page-shell">

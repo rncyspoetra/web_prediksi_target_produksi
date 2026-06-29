@@ -1,64 +1,84 @@
 @extends('adminlte::page')
 @section('title', 'Tambah User')
-@section('content')
+@vite('resources/css/pages/create.user.css')
 
-    <div class="card card-primary mt-3">
-        <div class="card-header">
-            <h3 class="card-title">Tambah User</h3>
+@section('content')
+    <div class="page-shell">
+
+        {{-- ── Page Header ── --}}
+        <div class="page-header">
+            <h1>Tambah User</h1>
+            <p>Buat akun pengguna baru dan tentukan hak akses rolenya.</p>
         </div>
-        <form action="{{ route('user.store') }}" method="POST">
-            @csrf
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Username</label>
-                            <input type="text" name="username"
-                                class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}">
+
+        {{-- ── Form Card ── --}}
+        <div class="section-card">
+            <div class="section-card-header">
+                <h2 class="section-card-title">Informasi Akun</h2>
+            </div>
+            <form action="{{ route('user.store') }}" method="POST">
+                @csrf
+                <div class="section-card-body">
+                    <div class="form-grid">
+
+                        <div class="form-field">
+                            <label for="username">
+                                Username <span class="required">*</span>
+                            </label>
+                            <input type="text" id="username" name="username" value="{{ old('username') }}"
+                                placeholder="Masukkan username" class="{{ $errors->has('username') ? 'is-invalid' : '' }}">
                             @error('username')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-msg">{{ $message }}</div>
                             @enderror
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" name="password"
-                                class="form-control @error('password') is-invalid @enderror">
-                            @error('password')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Role</label>
-                            <select name="role" class="form-control @error('role') is-invalid @enderror">
-                                <option value="">-- Pilih Role --</option>
-                                <option value="admin">Admin</option>
-                                <option value="manajemen">Manajemen</option>
+
+                        <div class="form-field">
+                            <label for="role">
+                                Role <span class="required">*</span>
+                            </label>
+                            <select id="role" name="role" class="{{ $errors->has('role') ? 'is-invalid' : '' }}">
+                                <option value="" disabled {{ old('role') ? '' : 'selected' }}>-- Pilih Role --
+                                </option>
+                                <option value="admin" {{ old('role') === 'admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="manajemen" {{ old('role') === 'manajemen' ? 'selected' : '' }}>Manajemen
+                                </option>
                             </select>
                             @error('role')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                <div class="invalid-msg">{{ $message }}</div>
                             @enderror
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Konfirmasi Password</label>
-                            <input type="password" name="password_confirmation" class="form-control">
+
+                        <div class="form-field">
+                            <label for="password">
+                                Password <span class="required">*</span>
+                            </label>
+                            <input type="password" id="password" name="password" placeholder="Masukkan password"
+                                class="{{ $errors->has('password') ? 'is-invalid' : '' }}">
+                            @error('password')
+                                <div class="invalid-msg">{{ $message }}</div>
+                            @enderror
                         </div>
+
+                        <div class="form-field">
+                            <label for="password_confirmation">
+                                Konfirmasi Password <span class="required">*</span>
+                            </label>
+                            <input type="password" id="password_confirmation" name="password_confirmation"
+                                placeholder="Ulangi password">
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-                <a href="{{ route('user.index') }}" class="btn btn-secondary">
-                    Kembali
-                </a>
-                <button class="btn btn-primary">
-                    Simpan
-                </button>
-            </div>
-        </form>
+                <div class="section-card-footer">
+                    <a href="{{ route('user.index') }}" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Kembali
+                    </a>
+                    <button type="submit" class="btn-save">
+                        <i class="fas fa-save"></i> Simpan User
+                    </button>
+                </div>
+            </form>
+        </div>
+
     </div>
 @stop

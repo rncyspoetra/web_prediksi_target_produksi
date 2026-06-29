@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @section('title', 'Profile')
-@vite('resources/views/profile/style.css')
+@vite('resources/css/pages/profile.css')
 
 @section('content')
     <div class="page-shell">

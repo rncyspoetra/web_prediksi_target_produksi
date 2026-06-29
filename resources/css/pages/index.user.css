@@ -1,0 +1,310 @@
+:root {
+    --ink: #0f1117;
+    --ink-2: #4a4d5a;
+    --ink-3: #8b8e9c;
+    --surface: #ffffff;
+    --surface-1: #f7f8fa;
+    --border: #e3e5eb;
+    --border-strong: #c8cbd6;
+    --accent: #2d5be3;
+    --accent-bg: #edf1fd;
+    --accent-text: #1a3db5;
+    --success: #0f8c4a;
+    --success-bg: #e6f5ed;
+    --success-text: #0a5e31;
+    --warning-bg: #fef3e2;
+    --warning-text: #7a4900;
+    --danger: #cc2929;
+    --danger-bg: #fdeaea;
+    --danger-text: #8f1a1a;
+    --info-bg: #e6f2fb;
+    --info-text: #084d7d;
+    --radius: 10px;
+    --radius-sm: 6px;
+}
+
+body,
+.wrapper {
+    background: var(--surface-1) !important;
+}
+
+.content-wrapper {
+    background: var(--surface-1) !important;
+    padding: 0 !important;
+}
+
+.page-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+/* ── Page header ── */
+.page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.page-header-left h1 {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.page-header-left p {
+    font-size: 0.875rem;
+    color: var(--ink-3);
+    margin: 0;
+}
+
+.btn-primary-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+        background 0.15s,
+        transform 0.1s;
+    white-space: nowrap;
+}
+
+.btn-primary-action:hover {
+    background: #2450c8;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-primary-action:active {
+    transform: scale(0.98);
+}
+
+/* ── Section card ── */
+.section-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.section-card-header {
+    display: flex;
+    align-items: center;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-1);
+}
+
+.section-card-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* ── Table ── */
+.data-table-wrap {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    font-size: 0.8125rem;
+    border-collapse: collapse;
+}
+
+.data-table thead th {
+    background: var(--surface-1);
+    color: var(--ink-3);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.6rem 1rem;
+    border-bottom: 2px solid var(--border);
+    white-space: nowrap;
+    text-align: center;
+}
+
+.data-table thead th:nth-child(2),
+.data-table thead th:nth-child(3) {
+    text-align: left;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+}
+
+.data-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.data-table tbody tr:hover {
+    background: var(--surface-1);
+}
+
+.data-table td {
+    padding: 0.65rem 1rem;
+    color: var(--ink);
+    vertical-align: middle;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.data-table td:first-child {
+    color: var(--ink-3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    width: 52px;
+}
+
+.data-table td:nth-child(2),
+.data-table td:nth-child(3) {
+    text-align: left;
+}
+
+/* ── Username cell ── */
+.user-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.user-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent-bg);
+    color: var(--accent-text);
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.user-name {
+    font-weight: 500;
+    color: var(--ink);
+}
+
+/* ── Role badge ── */
+.role-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    background: var(--info-bg);
+    color: var(--info-text);
+    border: 1px solid #8eccf0;
+}
+
+/* ── Row action buttons ── */
+.row-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.btn-edit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--warning-text);
+    background: var(--warning-bg);
+    border: 1px solid #e8c070;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.btn-edit:hover {
+    background: #fde8c0;
+    color: var(--warning-text);
+    text-decoration: none;
+}
+
+.btn-reset {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--success-text);
+    background: var(--success-bg);
+    border: 1px solid #a8dcc0;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.btn-reset:hover {
+    background: #c9ecda;
+}
+
+.btn-hapus {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--danger-text);
+    background: var(--danger-bg);
+    border: 1px solid #f0a8a8;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+}
+
+.btn-hapus:hover {
+    background: #f9d0d0;
+}
+
+/* ── Empty state ── */
+.empty-state {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+}
+
+.empty-state i {
+    font-size: 2rem;
+    color: var(--border-strong);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.empty-state p {
+    font-size: 0.8125rem;
+    color: var(--ink-3);
+    margin: 0;
+}

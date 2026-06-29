@@ -1,84 +1,88 @@
-```blade
 @extends('adminlte::page')
 @section('title', 'Tambah Data Historis')
-@section('content')
+@vite('resources/css/pages/create.data-historis.css')
 
-    <div class="card card-primary mt-3">
-        <div class="card-header">
-            <h3 class="card-title">
-                <i class="fas fa-plus-circle mr-2"></i>
-                Tambah Data Historis
-            </h3>
+@section('content')
+    <div class="page-shell">
+
+        {{-- ── Page Header ── --}}
+        <div class="page-header">
+            <div class="page-header-left">
+                <h1>Tambah Data Historis</h1>
+                <p>Isi form di bawah untuk menambahkan data historis produksi baru.</p>
+            </div>
         </div>
-        <form action="{{ route('data-historis.store') }}" method="POST">
-            @csrf
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Total Tenaga <span class="text-danger">*</span></label>
-                            <input type="number" name="total_tenaga"
-                                class="form-control @error('total_tenaga') is-invalid @enderror"
-                                value="{{ old('total_tenaga') }}" placeholder="Masukkan total tenaga">
+
+        {{-- ── Form Card ── --}}
+        <div class="section-card">
+            <div class="section-card-header">
+                <h2 class="section-card-title">Informasi Data</h2>
+            </div>
+            <form action="{{ route('data-historis.store') }}" method="POST">
+                @csrf
+                <div class="section-card-body">
+                    <div class="form-grid">
+
+                        <div class="form-field">
+                            <label for="total_tenaga">
+                                Total Tenaga <span class="required">*</span>
+                            </label>
+                            <input type="number" id="total_tenaga" name="total_tenaga" value="{{ old('total_tenaga') }}"
+                                placeholder="Masukkan total tenaga"
+                                class="{{ $errors->has('total_tenaga') ? 'is-invalid' : '' }}">
                             @error('total_tenaga')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <div class="invalid-msg">{{ $message }}</div>
                             @enderror
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Tenaga Produktif <span class="text-danger">*</span></label>
-                            <input type="number" name="tenaga_produktif"
-                                class="form-control @error('tenaga_produktif') is-invalid @enderror"
-                                value="{{ old('tenaga_produktif') }}" placeholder="Masukkan tenaga produktif">
+
+                        <div class="form-field">
+                            <label for="tenaga_produktif">
+                                Tenaga Produktif <span class="required">*</span>
+                            </label>
+                            <input type="number" id="tenaga_produktif" name="tenaga_produktif"
+                                value="{{ old('tenaga_produktif') }}" placeholder="Masukkan tenaga produktif"
+                                class="{{ $errors->has('tenaga_produktif') ? 'is-invalid' : '' }}">
                             @error('tenaga_produktif')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <div class="invalid-msg">{{ $message }}</div>
                             @enderror
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Jam Kerja <span class="text-danger">*</span></label>
-                            <input type="number" step="0.1" name="jam_kerja"
-                                class="form-control @error('jam_kerja') is-invalid @enderror" value="{{ old('jam_kerja') }}"
-                                placeholder="Contoh: 7.5">
+
+                        <div class="form-field">
+                            <label for="jam_kerja">
+                                Jam Kerja <span class="required">*</span>
+                            </label>
+                            <input type="number" step="0.1" id="jam_kerja" name="jam_kerja"
+                                value="{{ old('jam_kerja') }}" placeholder="Contoh: 7.5"
+                                class="{{ $errors->has('jam_kerja') ? 'is-invalid' : '' }}">
                             @error('jam_kerja')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <div class="invalid-msg">{{ $message }}</div>
                             @enderror
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Target Produksi <span class="text-danger">*</span></label>
-                            <input type="number" name="target_produksi"
-                                class="form-control @error('target_produksi') is-invalid @enderror"
-                                value="{{ old('target_produksi') }}" placeholder="Masukkan target produksi">
+
+                        <div class="form-field">
+                            <label for="target_produksi">
+                                Target Produksi <span class="required">*</span>
+                            </label>
+                            <input type="number" id="target_produksi" name="target_produksi"
+                                value="{{ old('target_produksi') }}" placeholder="Masukkan target produksi"
+                                class="{{ $errors->has('target_produksi') ? 'is-invalid' : '' }}">
                             @error('target_produksi')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
+                                <div class="invalid-msg">{{ $message }}</div>
                             @enderror
                         </div>
+
                     </div>
                 </div>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-                <a href="{{ route('data-historis.index') }}" class="btn btn-secondary">
-                    <i class="fas fa-arrow-left mr-1"></i>
-                    Kembali
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save mr-1"></i>
-                    Simpan Data
-                </button>
-            </div>
-        </form>
-    </div>
+                <div class="section-card-footer">
+                    <a href="{{ route('data-historis.index') }}" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Kembali
+                    </a>
+                    <button type="submit" class="btn-save">
+                        <i class="fas fa-save"></i> Simpan Data
+                    </button>
+                </div>
+            </form>
+        </div>
 
+    </div>
 @stop
